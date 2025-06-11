@@ -15,7 +15,7 @@ export default function Home() {
         {/* Overlay content */}
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold drop-shadow-lg">
-            Welkom op mijn site
+            Hengelsport Maarssen
           </h1>
           <p className="mt-4 text-lg md:text-xl drop-shadow-lg">
             Ontdek onze nieuwste aanbiedingen en producten!
