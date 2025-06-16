@@ -33,7 +33,7 @@ export default function BusinessInfoForm() {
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    setInfo((prev: BusinessInfo | null) =>
+    setInfo((prev) =>
       prev
         ? {
             ...prev,
@@ -44,7 +44,7 @@ export default function BusinessInfoForm() {
   }
 
   function handleOpeningHoursChange(day: string, value: string) {
-    setInfo((prev: BusinessInfo | null) =>
+    setInfo((prev) =>
       prev
         ? {
             ...prev,
@@ -56,22 +56,15 @@ export default function BusinessInfoForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (!info) return;
     setSaving(true);
     setMessage("");
-    // Voeg specialMessageDate toe als specialMessage is aangepast
-    const body = {
-      ...info,
-      specialMessageDate: info?.specialMessage
-        ? new Date().toISOString()
-        : null,
-    };
     const res = await fetch("/api/business-info", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: JSON.stringify(info),
     });
-    if (res.ok) setMessage("Gegevens opgeslagen!");
-    else setMessage("Opslaan mislukt.");
+    setMessage(res.ok ? "Gegevens opgeslagen!" : "Opslaan mislukt.");
     setSaving(false);
   }
 
@@ -81,7 +74,7 @@ export default function BusinessInfoForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" max-w-5xl mx-auto bg-container rounded shadow p-4 "
+      className="max-w-5xl mx-auto bg-container rounded shadow p-4"
     >
       <div className="flex flex-row gap-8">
         <div className="flex-1 w-1/2">
@@ -136,28 +129,13 @@ export default function BusinessInfoForm() {
               className="border border-border p-2 rounded bg-container-light"
               placeholder="BTW"
             />
-            <textarea
-              name="specialMessage"
-              value={info.specialMessage || ""}
-              onChange={handleChange}
-              className="border border-border p-2 rounded bg-container-light"
-              placeholder="Speciaal bericht (bijv. feestdagen, aankondigingen)"
-              rows={3}
-            />
           </div>
         </div>
+
         <div className="flex-1 w-1/2">
           <h3 className="text-lg font-bold mt-4">Openingstijden</h3>
           <div className="grid grid-cols-1 gap-2">
-            {[
-              "maandag",
-              "dinsdag",
-              "woensdag",
-              "donderdag",
-              "vrijdag",
-              "zaterdag",
-              "zondag",
-            ].map((dag) => (
+            {Object.keys(defaultOpeningHours).map((dag) => (
               <div key={dag} className="flex gap-2 items-center">
                 <label className="w-24 capitalize">{dag}:</label>
                 <input
@@ -174,7 +152,17 @@ export default function BusinessInfoForm() {
           </div>
         </div>
       </div>
-
+      <div>
+        <h3 className="text-lg font-bold mt-4">Speciaal Bericht</h3>
+        <textarea
+          name="specialMessage"
+          value={info.specialMessage || ""}
+          onChange={handleChange}
+          className="border border-border p-2 rounded bg-container-light w-full my-[1rem]"
+          placeholder="Speciaal bericht (bijv. feestdagen, aankondigingen)"
+          rows={3}
+        />
+      </div>
       <button
         type="submit"
         className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-light"

@@ -2,7 +2,7 @@ export type Product = {
   id: number;
   title: string;
   description: string;
-  info?: { key: string; value: string }[]; // <-- nu een optionele array van key-value paren
+  info?: { key: string; value: string }[];
   amount: number;
   image?: string | null;
   price: number;
@@ -18,8 +18,8 @@ export type Reservation = {
   name: string;
   email: string;
   phone: string;
-  amount: number; // toegevoegd
-  note?: string; // toegevoegd
+  amount: number;
+  note?: string;
   createdAt: string;
 };
 
@@ -42,8 +42,8 @@ export interface BusinessInfo {
   kvk: string;
   btw: string;
   openingHours: OpeningHours;
-  specialMessage?: string; // <-- toegevoegd voor speciale berichten
-  specialMessageDate?: string; // <-- toegevoegd
+  specialMessage?: string;
+  specialMessageDate?: string;
 }
 
 export type BusinessInfoUpdate = Partial<Omit<BusinessInfo, "id">> & {

@@ -1,6 +1,6 @@
 import { prisma } from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
-import type { BusinessInfoUpdate } from "@/app/types/types";
+import type { BusinessInfo } from "@/app/types/types";
 
 // Ophalen bedrijfsinfo
 export async function GET() {
@@ -10,13 +10,10 @@ export async function GET() {
 
 // Updaten bedrijfsinfo
 export async function PUT(req: Request) {
-  const body: BusinessInfoUpdate = await req.json();
-
-  // Haal huidige info op om te vergelijken
+  const body: Partial<BusinessInfo> = await req.json();
   const current = await prisma.businessInfo.findUnique({ where: { id: 1 } });
 
-  // Zet de datum alleen als het bericht is gewijzigd
-  const updateData: BusinessInfoUpdate = { ...body };
+  const updateData: Partial<BusinessInfo> = { ...body };
   if (
     typeof body.specialMessage === "string" &&
     body.specialMessage !== current?.specialMessage

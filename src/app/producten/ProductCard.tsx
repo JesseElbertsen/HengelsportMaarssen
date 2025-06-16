@@ -45,7 +45,7 @@ export default function ProductCard({
     >
       {/* Klikbare kaart die naar de product detailpagina leidt */}
       <Link href={`/producten/${id}`}>
-        <div className="shadow-xl rounded-md bg-container  cursor-pointer   h-[430px] flex flex-col justify-between relative">
+        <div className="shadow-xl rounded-md bg-container  cursor-pointer   h-[430px] flex flex-col justify-between relative mx-4">
           {/* Productafbeelding of placeholder */}
           <div className="relative">
             {image && (image.startsWith("http") || image.startsWith("/")) ? (

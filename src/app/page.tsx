@@ -32,8 +32,10 @@ export default function Home() {
 
       <SpecialMessageBanner />
 
+      <div className="border-b border-primary mb-2 md:mx-[3rem] " />
+
       {/* SaleItems */}
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 ">
+      <div className="flex flex-col items-center justify-center w-full max-w-7xl md:mx-auto md:px-4 ">
         <SaleItems />
       </div>
     </section>

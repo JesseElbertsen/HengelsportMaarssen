@@ -24,10 +24,17 @@ export default function SpecialMessageBanner() {
   if (!data?.specialMessage) return null;
 
   return (
-    <div className="bg-container text-text p-4 my-6 max-w-2xl mx-auto rounded">
-      <div>{data.specialMessage}</div>
+    <div className="relative bg-container text-text p-4 my-6 max-w-2xl md:w-2xl mx-auto rounded flex items-start gap-3 shadow border-l-4 border-primary">
+      <span className="text-2xl mt-1" aria-label="Bericht" title="Bericht">
+        📢
+      </span>
+      <div className="flex-1 w-full">
+        <h1 className="font-semibold mb-1 text-2xl">Mededeling</h1>
+        <div className="border-b border-border mb-2 w-full" />
+        <div className="my-[1rem]">{data.specialMessage}</div>
+      </div>
       {data.specialMessageDate && (
-        <div className="text-xs text-gray-500 mt-2">
+        <div className="absolute right-4 bottom-2 text-xs text-gray-500 ">
           Geplaatst op:{" "}
           {new Date(data.specialMessageDate).toLocaleDateString("nl-NL")}
         </div>

@@ -42,7 +42,7 @@ export default function SaleItems() {
   };
 
   return (
-    <section className="w-full px-4 py-8 relative">
+    <section className="w-full px-4 py-8 ">
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-3xl font-bold text-text mb-2">
           Afgeprijsde Producten
