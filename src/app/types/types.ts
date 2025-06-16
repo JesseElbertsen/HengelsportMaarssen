@@ -42,4 +42,10 @@ export interface BusinessInfo {
   kvk: string;
   btw: string;
   openingHours: OpeningHours;
+  specialMessage?: string; // <-- toegevoegd voor speciale berichten
+  specialMessageDate?: string; // <-- toegevoegd
 }
+
+export type BusinessInfoUpdate = Partial<Omit<BusinessInfo, "id">> & {
+  specialMessageDate?: string;
+};

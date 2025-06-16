@@ -52,6 +52,8 @@ model BusinessInfo {
   kvk          String
   btw          String
   openingHours Json
+  specialMessage String?
+  specialMessageDate DateTime? // <-- toegevoegd
 }
 
 model User {

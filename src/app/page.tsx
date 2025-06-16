@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Carousel from "./components/Carousel";
 import SaleItems from "./components/SaleItems";
+import SpecialMessageBanner from "./components/SpecialMessageBanner";
 
 export default function Home() {
   return (
@@ -29,8 +30,10 @@ export default function Home() {
         </div>
       </div>
 
+      <SpecialMessageBanner />
+
       {/* SaleItems */}
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 lg:mt-[8rem]">
+      <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 ">
         <SaleItems />
       </div>
     </section>

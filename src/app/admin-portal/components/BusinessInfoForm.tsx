@@ -30,7 +30,9 @@ export default function BusinessInfoForm() {
       });
   }, []);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
     setInfo((prev: BusinessInfo | null) =>
       prev
         ? {
@@ -56,10 +58,17 @@ export default function BusinessInfoForm() {
     e.preventDefault();
     setSaving(true);
     setMessage("");
+    // Voeg specialMessageDate toe als specialMessage is aangepast
+    const body = {
+      ...info,
+      specialMessageDate: info?.specialMessage
+        ? new Date().toISOString()
+        : null,
+    };
     const res = await fetch("/api/business-info", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(info),
+      body: JSON.stringify(body),
     });
     if (res.ok) setMessage("Gegevens opgeslagen!");
     else setMessage("Opslaan mislukt.");
@@ -126,6 +135,14 @@ export default function BusinessInfoForm() {
               onChange={handleChange}
               className="border border-border p-2 rounded bg-container-light"
               placeholder="BTW"
+            />
+            <textarea
+              name="specialMessage"
+              value={info.specialMessage || ""}
+              onChange={handleChange}
+              className="border border-border p-2 rounded bg-container-light"
+              placeholder="Speciaal bericht (bijv. feestdagen, aankondigingen)"
+              rows={3}
             />
           </div>
         </div>
