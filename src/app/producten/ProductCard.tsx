@@ -38,14 +38,14 @@ export default function ProductCard({
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 0.3,
+        duration: 0.2,
         ease: "easeOut",
         delay: inView ? index * 0.2 : 0,
       }}
     >
       {/* Klikbare kaart die naar de product detailpagina leidt */}
       <Link href={`/producten/${id}`}>
-        <div className="shadow-xl rounded-md bg-container  cursor-pointer   h-[430px] flex flex-col justify-between relative mx-4">
+        <div className="shadow-xl rounded-md bg-container  cursor-pointer   h-[430px] flex flex-col justify-between relative md:mx-0 mx-4">
           {/* Productafbeelding of placeholder */}
           <div className="relative">
             {image && (image.startsWith("http") || image.startsWith("/")) ? (

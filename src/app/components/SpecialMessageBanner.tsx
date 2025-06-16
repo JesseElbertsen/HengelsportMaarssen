@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 type SpecialMessageData = {
   specialMessage: string | null;
@@ -26,7 +27,14 @@ export default function SpecialMessageBanner() {
   return (
     <div className="relative bg-container text-text p-4 my-6 max-w-2xl md:w-2xl mx-auto rounded flex items-start gap-3 shadow border-l-4 border-primary">
       <span className="text-2xl mt-1" aria-label="Bericht" title="Bericht">
-        📢
+        <Image
+          src="/images/logo.png"
+          alt="Hengelsport Maarssen logo"
+          width={40}
+          height={40}
+          className="object-contain"
+          priority
+        />
       </span>
       <div className="flex-1 w-full">
         <h1 className="font-semibold mb-1 text-2xl">Mededeling</h1>

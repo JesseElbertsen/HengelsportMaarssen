@@ -1,103 +1,14 @@
-// import { Product } from "../types/types";
-
-// const products: Product[] = [
-//   {
-//     id: 1,
-//     title: "Product A",
-//     description: "Beschrijving van product A",
-//     info: [{ key: "extra", value: "Extra informatie over product A" }],
-//     amount: 10,
-//     image: "/images/product-a.jpg",
-//     price: 29.99,
-//     oldPrice: 39.99, // SALE
-//     type: "optie 1",
-//   },
-//   {
-//     id: 2,
-//     title: "Product B",
-//     description: "Beschrijving van product B",
-//     info: [{ key: "extra", value: "Extra informatie over product B" }],
-//     amount: 5,
-//     image: "/images/product-b.jpg",
-//     price: 49.99,
-//     type: "optie 2",
-//   },
-//   {
-//     id: 3,
-//     title: "Product C",
-//     description: "Beschrijving van product C",
-//     info: [{ key: "extra", value: "Extra informatie over product C" }],
-//     amount: 20,
-//     image: "/images/product-c.jpg",
-//     price: 19.99,
-//     type: "optie 3",
-//   },
-//   {
-//     id: 4,
-//     title: "Product D",
-//     description: "Beschrijving van product D",
-//     info: [{ key: "extra", value: "Extra informatie over product D" }],
-//     amount: 15,
-//     image: "/images/product-d.jpg",
-//     price: 99.99,
-//     oldPrice: 129.99, // SALE
-//     type: "optie 1",
-//   },
-//   {
-//     id: 5,
-//     title: "Product E",
-//     description: "Beschrijving van product E",
-//     info: [{ key: "extra", value: "Extra informatie over product E" }],
-//     amount: 8,
-//     image: "/images/product-e.jpg",
-//     price: 59.99,
-//     type: "optie 2",
-//   },
-//   {
-//     id: 6,
-//     title: "Product F",
-//     description: "Beschrijving van product F",
-//     info: [{ key: "extra", value: "Extra informatie over product F" }],
-//     amount: 12,
-//     image: "/images/product-f.jpg",
-//     price: 39.99,
-//     type: "optie 3",
-//   },
-//   {
-//     id: 7,
-//     title: "Product G",
-//     description: "Beschrijving van product G",
-//     info: [{ key: "extra", value: "Extra informatie over product G" }],
-//     amount: 18,
-//     image: "/images/product-g.jpg",
-//     price: 89.99,
-//     oldPrice: 109.99, // SALE
-//     type: "optie 1",
-//   },
-//   {
-//     id: 8,
-//     title: "Product H",
-//     description: "Beschrijving van product H",
-//     info: [{ key: "extra", value: "Extra informatie over product H" }],
-//     amount: 25,
-//     image: "/images/product-h.jpg",
-//     price: 24.99,
-//     type: "optie 2",
-//   },
-// ];
-
-// // Haal alle producten op
-// export async function getProducts(): Promise<Product[]> {
-//   return products;
-// }
-
-// Voeg een nieuw product toe
-
 export async function getPageContent(slug: string) {
-  const dummyPages: Record<string, { title: string; body: string }> = {
+  const dummyPages: Record<
+    string,
+    { title: string; body: string; intro?: string; introbody?: string }
+  > = {
     "over-ons": {
-      title: "Over ons",
-      body: "Wij zijn een moderne webshop die klantgericht werkt en unieke producten aanbiedt.",
+      intro: "Hengelsport winkel te Maarssen.",
+      introbody:
+        "Welkom bij Hengelsport Maarssen! In de winkel van 750m2 met gratis parkeerplaatsen voor de deur is daadwerkelijk alles te vinden op het gebied van hengelsport.",
+      title: "Hengelsport",
+      body: "Of je nu karpervisser, roofvisser, witvisser of zeevisser bent, wij hebben het in ons assortiment! Ook verkopen wij levend aas waaronder kleine en grote maden, casters, mestpieren en springers. Door onze grote voorraad, diversiteit en scherpe prijzen sta je nooit met lege handen. Bij ons vind je onder andere de merken: Korda, Fox, Shimano, Pro-line, Piet Vogel, Preston, Savage Gear, Spro en nog vele andere merken!",
     },
     contact: {
       title: "Contact",

@@ -16,41 +16,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jouw Webshop Naam | Unieke producten & aanbiedingen",
+  title: "Hengelsport Maarssen | Dé hengelsportwinkel van Maarssen",
   description:
-    "Ontdek de beste deals en unieke producten bij Jouw Webshop. Veilig reserveren, snelle levering en uitstekende service.",
+    "Dé hengelsportwinkel van Maarssen. Alles voor karpervissen, roofvissen en meer. Deskundig advies en snelle levering.",
   keywords: [
+    "Hengelsport Maarssen",
+    "hengelsport",
+    "karpervissen",
+    "roofvissen",
     "webshop",
-    "online winkel",
-    "producten",
-    "aanbiedingen",
-    "snelle levering",
-    "winkel",
-    "shop",
-    "build by jesse",
   ],
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: [
+      {
+        url: "/images/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/images/favicon.ico",
+        rel: "shortcut icon",
+      },
+      {
+        url: "/images/apple-touch-icon.png",
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+      },
+    ],
   },
   openGraph: {
-    title: "Jouw Webshop Naam",
-    description: "Ontdek de beste deals en unieke producten bij Jouw Webshop.",
-    url: "https://www.jouwwebshop.nl",
-    siteName: "Jouw Webshop Naam",
+    title: "Hengelsport Maarssen",
+    description:
+      "Dé hengelsportwinkel van Maarssen. Alles voor karpervissen, roofvissen en meer.",
+    url: "https://www.hengelsportmaarssen.nl",
+    siteName: "Hengelsport Maarssen",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://www.hengelsportmaarssen.nl/images/banner1.jpg",
         width: 1200,
         height: 630,
-        alt: "Jouw Webshop",
+        alt: "Hengelsport Maarssen",
       },
     ],
     locale: "nl_NL",
     type: "website",
   },
   robots: "index, follow",
-  // canonical: "https://www.jouwwebshop.nl", // Voeg toe als je live bent
 };
 
 export default function RootLayout({
@@ -68,36 +84,52 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Store",
-              name: "Jouw Webshop Naam",
-              url: "https://www.jouwwebshop.nl",
+              name: "Hengelsport Maarssen",
+              url: "https://www.hengelsportmaarssen.nl",
               description:
-                "Ontdek de beste deals en unieke producten bij Jouw Webshop.",
+                "Dé hengelsportwinkel van Maarssen. Alles voor karpervissen, roofvissen en meer.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "Voorbeeldstraat 1",
-                addressLocality: "Voorbeeldstad",
-                postalCode: "1234 AB",
+                addressLocality: "Maarssen",
+                postalCode: "3601 AA",
                 addressCountry: "NL",
               },
               telephone: "0612345678",
             }),
           }}
         />
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        {/* Favicon en app icons */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/images/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/images/site.webmanifest" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+        {/* theme-color en msapplication zijn optioneel, maar kun je zo laten: */}
+        <meta name="theme-color" content="#ffffff" />
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.jouwwebshop.nl" />
-        {/* Manifest voor PWA support */}
-        <link rel="manifest" href="/manifest.json" />
-        {/* Extra meta tags */}
-        <meta name="theme-color" content="#22a4b9" />
+        <link rel="canonical" href="https://www.hengelsportmaarssen.nl" />
+        {/* Viewport & charset */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet="utf-8" />
         {/* Social preview fallback */}
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="nl_NL" />
-        <meta property="og:site_name" content="Jouw Webshop Naam" />
-        {/* Accessibility: charset */}
-        <meta charSet="utf-8" />
+        <meta property="og:site_name" content="Hengelsport Maarssen" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

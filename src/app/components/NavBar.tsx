@@ -11,6 +11,7 @@ import {
   SunIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -71,8 +72,14 @@ const Navbar = () => {
     <nav className="relative top-0 w-full z-50 shadow-xl text-xl bg-container">
       {/* Desktop Navbar */}
       <div className="hidden md:flex justify-between items-center bg-muted h-[6rem] backdrop-blur-md text-white py-4 px-10 relative">
-        <Link href="/" className="text-2xl text-text z-50">
-          logo hier
+        <Link href="/" className="text-2xl text-text z-50 flex items-center">
+          <Image
+            src="/images/maarssen-kleur.svg"
+            alt="Hengelsport Maarssen logo"
+            width={200}
+            height={200}
+            priority
+          />
         </Link>
         <ul className="flex space-x-10 items-center">
           {navLinks.map((link, index) => (
@@ -110,6 +117,7 @@ const Navbar = () => {
       {/* Mobile Navbar */}
       <div className="md:hidden relative z-50">
         {/* Menu Button */}
+
         <button
           onClick={() => setOpen(!open)}
           className="absolute top-6 right-8 z-50"
