@@ -20,8 +20,8 @@ export default function Footer() {
             <Image
               src="/images/logo.png"
               alt="Hengelsport Maarssen logo"
-              width={192}
-              height={192}
+              width={200}
+              height={200}
               className="object-contain"
               priority
             />
