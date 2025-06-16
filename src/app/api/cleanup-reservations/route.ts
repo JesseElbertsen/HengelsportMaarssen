@@ -1,6 +1,10 @@
 import { prisma } from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
 
+export const config = {
+  schedule: "0 3 * * *", // elke dag om 03:00
+};
+
 const RESERVATION_VALID_DAYS = 5; // <-- Pas dit getal aan voor andere geldigheidsduur
 
 export async function GET() {
