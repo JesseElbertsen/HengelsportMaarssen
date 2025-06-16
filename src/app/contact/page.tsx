@@ -1,5 +1,6 @@
 import React from "react";
 import Info from "./info";
+import SpecialMessageBanner from "../components/SpecialMessageBanner";
 
 export default function page() {
   return (
@@ -8,11 +9,15 @@ export default function page() {
         <div>
           <Info />
         </div>
+        <div>
+          <SpecialMessageBanner />
+        </div>
 
-        <div className="bg-container shadow rounded p-4  md:w-[500px]">
+        <div className="bg-container shadow rounded p-4  md:w-[700px]">
           <h2 className="text-2xl text-text font-bold mt-4 ">
             Neem contact met ons op
           </h2>
+          <div className="border-b border-border mb-2 w-full" />
           <p className="my-2">
             Heb je vragen of opmerkingen? Neem gerust contact met ons op via
             e-mail of telefoon. We helpen je graag verder!

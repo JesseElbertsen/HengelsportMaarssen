@@ -1,5 +1,6 @@
 import { prisma } from "@/app/lib/prisma";
 import { NextResponse } from "next/server";
+import type { BusinessInfo } from "@/app/types/types";
 
 // Ophalen bedrijfsinfo
 export async function GET() {
@@ -8,12 +9,22 @@ export async function GET() {
 }
 
 // Updaten bedrijfsinfo
-export async function PUT(request: Request) {
-  const data = await request.json();
-  const updated = await prisma.businessInfo.upsert({
+export async function PUT(req: Request) {
+  const body: Partial<BusinessInfo> = await req.json();
+  const current = await prisma.businessInfo.findUnique({ where: { id: 1 } });
+
+  const updateData: Partial<BusinessInfo> = { ...body };
+  if (
+    typeof body.specialMessage === "string" &&
+    body.specialMessage !== current?.specialMessage
+  ) {
+    updateData.specialMessageDate = new Date().toISOString();
+  }
+
+  const info = await prisma.businessInfo.update({
     where: { id: 1 },
-    update: data,
-    create: { id: 1, ...data },
+    data: updateData,
   });
-  return NextResponse.json(updated);
+
+  return NextResponse.json(info);
 }

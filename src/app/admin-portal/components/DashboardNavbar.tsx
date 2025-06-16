@@ -1,6 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { MoonIcon, SunIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
+import {
+  MoonIcon,
+  SunIcon,
+  Squares2X2Icon,
+  PlusCircleIcon,
+  ClipboardDocumentListIcon,
+  BuildingStorefrontIcon,
+  ArrowRightOnRectangleIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 
@@ -29,42 +37,46 @@ export default function DashboardNavbar({
   if (!mounted) return null; // Of een skeleton/spinner
 
   return (
-    <nav className="h-full min-h-screen w-56 bg-container-dark shadow-md text-white flex flex-col py-8 px-4 gap-2 fixed left-0 top-0 z-20">
+    <nav className="h-full min-h-screen w-60 bg-container-dark shadow-md text-white flex flex-col py-8 px-4 gap-2 fixed left-0 top-0 z-20">
       <h2 className="text-2xl font-bold mb-8 text-center">Admin Dashboard</h2>
       <button
-        className={`text-left px-4 py-2 rounded transition font-semibold text-white
+        className={`flex items-center gap-2 text-left px-4 py-2 rounded transition font-semibold text-white
           bg-primary hover:bg-primary-light
           ${active === "products" ? "bg-primary-light" : ""}
         `}
         onClick={() => setActive("products")}
       >
+        <Squares2X2Icon className="w-5 h-5" />
         Producten beheren
       </button>
       <button
-        className={`text-left px-4 py-2 rounded transition font-semibold text-white
+        className={`flex items-center gap-2 text-left px-4 py-2 rounded transition font-semibold text-white
           bg-primary hover:bg-primary-light
           ${active === "add" ? "bg-primary-light" : ""}
         `}
         onClick={() => setActive("add")}
       >
-        product toevoegen
+        <PlusCircleIcon className="w-5 h-5" />
+        Product toevoegen
       </button>
       <button
-        className={`text-left px-4 py-2 rounded transition font-semibold text-white
+        className={`flex items-center gap-2 text-left px-4 py-2 rounded transition font-semibold text-white
           bg-primary hover:bg-primary-light
           ${active === "reservations" ? "bg-primary-light" : ""}
         `}
         onClick={() => setActive("reservations")}
       >
+        <ClipboardDocumentListIcon className="w-5 h-5" />
         Reserveringen
       </button>
       <button
-        className={`text-left px-4 py-2 rounded transition font-semibold text-white
+        className={`flex items-center gap-2 text-left px-4 py-2 rounded transition font-semibold text-white
           bg-primary hover:bg-primary-light
           ${active === "businessinfo" ? "bg-primary-light" : ""}
         `}
         onClick={() => setActive("businessinfo")}
       >
+        <BuildingStorefrontIcon className="w-5 h-5" />
         Bedrijfsgegevens
       </button>
       {/* Voeg hier extra dashboard secties toe indien gewenst */}
@@ -85,20 +97,15 @@ export default function DashboardNavbar({
             <SunIcon className="w-6 h-6" />
           )}
         </button>
-        <Link
-          href="/"
-          className="flex items-center justify-center gap-2 px-4 py-2 rounded bg-primary hover:bg-primary-light transition text-white"
-        >
-          <ArrowLeftIcon className="w-6 h-6" />
-          <span className="sr-only">Terug naar site</span>
-        </Link>
       </div>
-      <button
-        className="w-full mt-2 px-4 py-2 bg-primary text-white rounded"
+      <Link
+        href="/"
+        className="flex items-center gap-2 w-full mt-2 px-4 py-2 bg-primary text-white rounded"
         onClick={() => signOut()}
       >
+        <ArrowRightOnRectangleIcon className="w-5 h-5" />
         Uitloggen
-      </button>
+      </Link>
     </nav>
   );
 }

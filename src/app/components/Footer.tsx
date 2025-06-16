@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { PhotoIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import type { BusinessInfo } from "@/app/types/types";
 
 export default function Footer() {
@@ -16,8 +16,15 @@ export default function Footer() {
     <div className="bg-container-dark text-white px-4 py-8">
       <div className="flex md:flex-row flex-col">
         <div className="flex flex-col items-center justify-center md:justify-start basis-2/5">
-          <div className="w-48 h-48 bg-gray-200 rounded-full flex items-center justify-center mb-4">
-            <PhotoIcon className="w-24 h-24 text-gray-500" />
+          <div className="w-48 h-48  rounded-full flex items-center justify-center mb-4 overflow-hidden">
+            <Image
+              src="/images/logo.png"
+              alt="Hengelsport Maarssen logo"
+              width={200}
+              height={200}
+              className="object-contain"
+              priority
+            />
           </div>
           {/* <span className="font-bold text-xl">Logo hier</span> */}
         </div>

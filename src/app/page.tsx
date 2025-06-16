@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Carousel from "./components/Carousel";
+import HomePageCarousel from "./components/HomePageCarousel";
 import SaleItems from "./components/SaleItems";
+import SpecialMessageBanner from "./components/SpecialMessageBanner";
 
 export default function Home() {
   return (
@@ -9,7 +10,7 @@ export default function Home() {
       <div className="relative w-full h-[500px]">
         {/* Carousel */}
         <div className="absolute inset-0 brightness-50 z-0">
-          <Carousel carouselId="homepage" />
+          <HomePageCarousel />
         </div>
 
         {/* Overlay content */}
@@ -29,8 +30,12 @@ export default function Home() {
         </div>
       </div>
 
+      <SpecialMessageBanner />
+
+      <div className="border-b border-primary mb-2 md:mx-[3rem] " />
+
       {/* SaleItems */}
-      <div className="flex flex-col items-center justify-center w-full max-w-7xl mx-auto px-4 lg:mt-[8rem]">
+      <div className="flex flex-col items-center justify-center w-full max-w-7xl md:mx-auto md:px-4 ">
         <SaleItems />
       </div>
     </section>
