@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Carousel from "./components/Carousel";
+import HomePageCarousel from "./components/HomePageCarousel";
 import SaleItems from "./components/SaleItems";
 import SpecialMessageBanner from "./components/SpecialMessageBanner";
 
@@ -10,7 +10,7 @@ export default function Home() {
       <div className="relative w-full h-[500px]">
         {/* Carousel */}
         <div className="absolute inset-0 brightness-50 z-0">
-          <Carousel carouselId="homepage" />
+          <HomePageCarousel />
         </div>
 
         {/* Overlay content */}

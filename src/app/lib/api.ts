@@ -30,12 +30,22 @@ export async function getCarouselImages(carouselId: string) {
         "/images/banner4.jpg",
       ],
     },
-    products: {
-      id: "products",
+    overons: {
+      id: "overons",
       images: [
-        "/images/products1.jpg",
-        "/images/products2.jpg",
-        "/images/products3.jpg",
+        "/images/brands/m-102_300x182.jpg",
+        "/images/brands/m-105_300x182.jpg",
+        "/images/brands/m-107_300x182.jpg",
+        "/images/brands/m-109_300x182.jpg",
+        "/images/brands/m-119_300x182.jpg",
+        "/images/brands/m-22_300x182.jpg",
+        "/images/brands/m-23_300x182.jpg",
+        "/images/brands/m-28_300x182.jpg",
+        "/images/brands/m-29_300x182.jpg",
+        "/images/brands/m-31_300x182.jpg",
+        "/images/brands/m-48_300x182.jpg",
+        "/images/brands/m-53_300x182.jpg",
+        // Voeg hier meer merknamen toe als je wilt
       ],
     },
   };
