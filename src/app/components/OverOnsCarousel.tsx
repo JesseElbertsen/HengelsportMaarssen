@@ -46,7 +46,7 @@ export default function OverOnsCarousel() {
 
   return (
     <div
-      className="w-full overflow-hidden mb-8 flex justify-center"
+      className="w-full overflow-hidden max-w-screen mb-8 flex justify-center"
       style={{ height: IMAGE_HEIGHT }}
     >
       <div
