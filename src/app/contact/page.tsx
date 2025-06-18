@@ -24,14 +24,14 @@ export default function page() {
           </p>
           <div className="flex flex-row justify-evenly items-center mt-4">
             <a
-              href="mailto:"
+              href="mailto:info@hengelsportmaarssen.nl"
               className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-light "
             >
               E-mail
             </a>
 
             <a
-              href="callto:"
+              href="tel:0346-216537"
               className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-light"
             >
               Telefoon
